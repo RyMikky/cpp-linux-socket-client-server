@@ -10,7 +10,6 @@ namespace net {
                 Clear();
                 
                 SetSettins( dynamic_cast<utils::ClientSettings*>(settings));
-                // _settings = dynamic_cast<utils::ClientSettings*>(settings);
                 return *this;
             }
             throw std::runtime_error("Client::SetClientSettins()::ERROR::Client already in process\n");
@@ -18,12 +17,10 @@ namespace net {
 
         utils::ClientSettings* Client::GetClientSettins() const {
             return dynamic_cast<utils::ClientSettings*>(GetSettins());
-            // return _settings;
         }
 
         Client::Client(int args, char** argv) 
             : SettingsUser(new utils::ClientSettings(args, argv)) {
-            // _settings = new utils::ClientSettings(args, argv);
             Init().Run();
         }
         
@@ -84,7 +81,6 @@ namespace net {
                 _endpoint.sin_addr.s_addr = inet_addr(__LOCAL_HOST__); 
                 // localhost берем потому что не задаано другое, но в принципе можно брать из настроек
 
-                // _is_init = true;
                 IsInit(true);    
             }
             return *this;
@@ -108,9 +104,6 @@ namespace net {
 
         Client& Client::Clear() {
             if (GetSettins() != nullptr) {
-                // delete _settings;
-
-                // _settings = nullptr;
                 SetSettins(nullptr);
             }
 

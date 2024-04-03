@@ -8,8 +8,6 @@ namespace net {
 
         class Client : public utils::SettingsUser {
         private:
-            // utils::ClientSettings* _settings = nullptr;
-            // bool _is_init = false;
             static std::atomic<bool> _in_process;
 
             int _socket = 0;
@@ -21,8 +19,6 @@ namespace net {
             // Возвращает параметры настроек клиента
             utils::ClientSettings* GetClientSettins() const;
 
-            // // Возвращает текущий статус инициализации
-            // bool IsInit() const { return _is_init; }
             // Возвращает текущий статус выполнения
             bool InProcess() const { return Client::_in_process; }
 
